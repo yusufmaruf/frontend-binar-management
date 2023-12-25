@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { httpFetch } from '../../utils/http';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 const BACKEND_URL = import.meta.env['VITE_BACKEND_URL']
 
@@ -79,6 +78,7 @@ function AddCar() {
       } else {
         throw new Error(`Error: ${res.status} - ${res.statusText}`);
       }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error("Error submitting form:", error.message);
     }

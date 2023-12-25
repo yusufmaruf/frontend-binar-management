@@ -1,5 +1,4 @@
-import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
-import { FaBell, FaPalette } from 'react-icons/fa';
+import { Navbar, Container, Dropdown, Button } from "react-bootstrap";
 
 function Header() {
   return (
