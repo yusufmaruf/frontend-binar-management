@@ -1,6 +1,5 @@
 
 
-import { Button } from 'react-bootstrap';
 const HeroSection = () => {
     return (
         <section id="hero-section">
@@ -15,9 +14,9 @@ const HeroSection = () => {
                                 kebutuhanmu untuk sewa mobil selama 24 jam.
                             </p>
                             
-                            <Button className="btn btn-success" style={{ backgroundColor: "green", color: "white", marginBottom: "10px" }}>
+                            <a href='/login' className="btn btn-success" style={{ backgroundColor: "green", color: "white", marginBottom: "10px" }}>
                                 Mulai Sewa Mobil
-                            </Button>
+                            </a>
                             
                         </div>
                     </div>
