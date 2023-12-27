@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { httpFetch } from "../../utils/http";
@@ -12,8 +14,8 @@ import { ContextType, useContext, Context } from 'react'
  
 export default function Login() {
   const navigate = useNavigate()
-  const [ setToken] = useLocalStorage('token', {})
-  const { saveUserInfo } = useContext(UserInfoContext) as ContextType<Context<TUserInfoContext>>
+  const [_token, setToken] = useLocalStorage('token', {})
+  const {userInfo, saveUserInfo } = useContext(UserInfoContext) as ContextType<Context<TUserInfoContext>>
 
   // eslint-disable-next-line
 
@@ -30,8 +32,7 @@ export default function Login() {
           password: e.currentTarget.password.value,
         }),        
       })
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
+      // @ts-ignore
       setToken(response.token)
       navigate('/dashboard')
     } catch (error) {
@@ -42,12 +43,10 @@ export default function Login() {
   const loginWithGoogle = useGoogleLogin({
 
     onSuccess: async ({ code }) => {
-      console.log(code)
       const tokens: GoogleOauthToken = await httpFetch('auth/google', false, {}, {
         method: 'post',
         body: JSON.stringify({ code })
       })
-      
 
       const resUserInfo = await fetch('https://openidconnect.googleapis.com/v1/userinfo?', {
         method: 'get',
