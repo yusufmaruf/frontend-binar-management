@@ -16,7 +16,7 @@ export default function Login() {
   const navigate = useNavigate()
   const [_token, setToken] = useLocalStorage('token', {})
   const {userInfo, saveUserInfo } = useContext(UserInfoContext) as ContextType<Context<TUserInfoContext>>
-
+  userInfo
   // eslint-disable-next-line
 
     async function submitLogin(e: React.FormEvent<HTMLFormElement>) {
